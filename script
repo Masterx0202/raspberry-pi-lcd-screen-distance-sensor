@@ -1,0 +1,10 @@
+from gpiozero import DistanceSensor 2 from time import sleep
+from rpi_lcd import LCD
+
+lcd =LCD()
+sensor = DistanceSensor(23, 24)
+
+while True:
+  message = "distance: " + "{:1.2}" .format(sensor.value) + " m"
+  lcd.text(message, 1)
+  sleep(0.5)
